@@ -1,0 +1,83 @@
+.dp-card {
+  max-width: 640px;
+  margin: 18px auto 0;
+  padding: 34px 34px 28px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* keep form centered inside */
+.dp-form {
+  padding: 0;
+}
+
+.dp-btn {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 16px;
+  padding: 22px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+
+  background: var(--btn-enabled);
+  transition: filter 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.dp-helper {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 500;
+  color: #13556f; /* same blue as screenshot */
+}
+
+
+/* ✅ BEFORE form fill (disabled) -> light mint */
+.dp-btn:disabled {
+  background: var(--btn-disabled);
+  cursor: not-allowed;
+  transform: none;
+  filter: none;
+}
+
+/* ✅ AFTER form fill (enabled) -> strong mint */
+.dp-btn:not(:disabled):hover {
+  background: var(--btn-hover);
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.dp-btn:not(:disabled):active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+
+/* ✅ Gender inline like screenshot */
+.gender-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 6px;
+}
+
+.gender-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* normal small radio */
+.gender-option input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;                 /* IMPORTANT: removes weird spacing */
+  accent-color: var(--mint); /* mint dot */
+}

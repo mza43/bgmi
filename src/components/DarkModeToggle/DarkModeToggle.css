@@ -1,0 +1,39 @@
+.dm {
+  background: #ffffff;             /* default white */
+  color: #1f2937;
+  border: 2px solid var(--mint);
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
+}
+
+.dm:hover {
+  background: var(--mint);
+  color: #ffffff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.dm:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.10);
+}
+
+[data-theme="dark"] .dm {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .dm:hover {
+  background: var(--mint);
+  color: #0b1a18;
+  border-color: var(--mint);
+}

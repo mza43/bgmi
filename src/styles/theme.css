@@ -1,0 +1,47 @@
+:root {
+  --bg: #fbf3f0;                 /* page background */
+  --card: #ffffff;
+--btn-disabled: #a9eadf;  /* light mint (before fill) */
+  --btn-enabled: #35c0a6;   /* strong mint (after fill) */
+  --btn-hover: #2fb49d;     /* hover color */
+  --text: #11242d;
+  --muted: #6b7b88;
+
+  --border: #e8eef3;
+
+  --input-bg: #f7fafc;           /* light input fill */
+  --input-border: #e3ebf2;
+
+  --mint: #38c7ad;               /* slider mint */
+  --mint-soft: #a9eadf;          /* button mint */
+  --mint-hover: #2fbda4;
+
+  --accent-red: #ff6f6f;
+  --hint-blue: #2b7fa6;
+
+  --shadow: 0 18px 60px rgba(16, 24, 40, 0.12);
+}
+
+
+
+[data-theme="dark"] {
+  --bg: #0e141a;
+  --card: #121a22;
+
+  --text: #eef3f7;
+  --muted: #a7b3bf;
+
+  --border: #223140;
+
+  --input-bg: #0f1720;
+  --input-border: #2a3a49;
+
+  --mint: #38c7ad;
+  --mint-soft: #47d6bf;
+  --mint-hover: #2fbda4;
+
+  --accent-red: #ff7d7d;
+  --hint-blue: #7bc3ff;
+
+  --shadow: 0 22px 70px rgba(0, 0, 0, 0.45);
+}

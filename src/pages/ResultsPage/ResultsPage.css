@@ -1,0 +1,262 @@
+/* Header layout */
+.rp-head {
+  padding: 6px 0 18px;
+}
+
+.rp-top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.rp-brand {
+  text-align: center;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  font-size: 22px;
+}
+
+.rp-keto { color: var(--mint); }
+.rp-slim { color: var(--accent-red); margin-left: 2px; }
+
+.rp-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rp-subrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+
+.rp-subtitle {
+  color: var(--mint);
+  font-weight: 800;
+  font-size: 16px;
+}
+
+/*  Progress dots (1 green + 5 grey like screenshot) */
+.rp-dots {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.rp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #d9e1e7; 
+}
+
+.rp-dot.is-on {
+  background: var(--mint); 
+}
+
+/* Card */
+.rp-card {
+  max-width: 640px;
+  margin: 18px auto 0;
+  padding: 0;
+  border-radius: 18px;
+}
+
+.rp-cardInner {
+  padding: 34px 34px 28px;
+  text-align: center;
+}
+
+.rp-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.rp-title {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1.1;
+  font-weight: 900;
+  color: #16333d;
+}
+
+.rp-red {
+  color: var(--accent-red);
+}
+
+.rp-subTitle {
+  font-size: 18px;
+  font-weight: 900;
+  color: #16333d;
+}
+
+.rp-subhead {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #16333d;
+}
+
+/* Image area */
+.rp-illustration {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0 6px;
+}
+
+.rp-illBox {
+  width: 260px;
+  height: 170px;
+  border-radius: 14px;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+}
+
+.rp-illText {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+/* Body text */
+.rp-body {
+  text-align: left;
+  margin-top: 10px;
+  color: #1d3b46;
+  font-size: 20px;
+  line-height: 1.55;
+}
+
+.rp-body p {
+  margin: 16px 0;
+}
+
+.rp-redText {
+  color: var(--accent-red);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Buttons row */
+.rp-actions{
+  max-width: 820px;
+  margin: 26px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.rp-actions.only-next{
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .rp-cardInner { padding: 26px 18px 22px; }
+  .rp-title { font-size: 30px; }
+  .rp-body { font-size: 18px; }
+  .rp-actions { max-width: 92%; grid-template-columns: 1fr; }
+}
+
+/* Dark mode readability */
+:root[data-theme="dark"] .rp-title,
+:root[data-theme="dark"] .rp-subhead,
+:root[data-theme="dark"] .rp-body,
+:root[data-theme="dark"] .rp-subTitle {
+  color: #ffffff;
+}
+
+:root[data-theme="dark"] .rp-body p {
+  color: #ffffff;
+}
+
+:root[data-theme="dark"] .rp-card {
+  background: #0f1b1f;
+}
+
+:root[data-theme="dark"] .rp-redText {
+  color: #ff6b6b;
+}
+
+
+/* Button container */
+.rp-actions {
+  max-width: 600px;                 
+  margin: 28px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.rp-actions.only-next {
+  grid-template-columns: 1fr 1fr;   
+}
+
+
+.rp-actions.only-next > div {
+  display: none;
+}
+
+
+.rp-actions.only-next .rp-btn-next {
+  grid-column: 2;
+}
+
+
+.rp-btn {
+  height: 64px;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: 800;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 26px;
+  gap: 12px;
+
+  transition: none;
+}
+
+
+/* Back button */
+.rp-btn-back {
+  background: #39c3a2;
+  border: 2px solid #39c3a2;
+  color: #f8f8f8;
+}
+
+/* Next button */
+.rp-btn-next {
+  background: #36bc9f;
+  border: 2px solid #36bc9f;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Disable hover effects */
+.rp-btn-back:hover,
+.rp-btn-next:hover,
+.rp-btn-back:active,
+.rp-btn-next:active {
+  transform: none;
+}
+
+/* Arrows */
+.rp-arrowLeft {
+  margin-right: auto;
+  font-size: 26px;
+}
+
+.rp-arrowRight {
+  margin-left: auto;
+  font-size: 26px;
+}
