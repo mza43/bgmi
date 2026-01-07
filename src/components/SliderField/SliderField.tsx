@@ -1,5 +1,6 @@
 import "./SliderField.css";
-import FieldLabel from "../FieldLabel/FieldLabel";
+import Field from "../Field/Field";
+import { rangeBackground } from "../../utils/range";
 
 type Props = {
   value: number;
@@ -23,17 +24,15 @@ export default function SliderField({
   hint,
 }: Props) {
   return (
-    <div className="sf">
-      <div className="sf-top">
-        <FieldLabel
-          label={label}
-          required={required}
-          className="sf-label"
-          reqClass="sf-req"
-        />
-        <div className="sf-value">{value}</div>
-      </div>
-
+    <Field
+      label={label}
+      required={required}
+      className="sf"
+      labelClass="sf-label"
+      reqClass="sf-req"
+      right={<div className="sf-value">{value}</div>}
+      hint={hint}
+    >
       <input
         className="sf-range"
         type="range"
@@ -42,18 +41,8 @@ export default function SliderField({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        style={{
-          background: `linear-gradient(
-      to right,
-      var(--mint) 0%,
-      var(--mint) ${((value - min) / (max - min)) * 100}%,
-      #2e2e2e ${((value - min) / (max - min)) * 100}%,
-      #2e2e2e 100%
-    )`,
-        }}
+        style={rangeBackground(value, min, max)}
       />
-
-      {hint ? <div className="sf-hint">{hint}</div> : null}
-    </div>
+    </Field>
   );
 }
