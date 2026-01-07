@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DarkModeToggle from "../../components/DarkModeToggle/DarkModeToggle";
+import BrandHeader from "../../components/BrandHeader/BrandHeader";
 import { loadForm } from "../../utils/storage";
 import "./ResultsPage.css";
 
@@ -87,7 +88,6 @@ export default function ResultsPage() {
     const days = clamp(data.daysToResults, 1, 365);
 
     return [
-      
       {
         key: "bodyFat",
         icon: <div className="rp-icon">⚖️</div>,
@@ -308,7 +308,6 @@ export default function ResultsPage() {
   const step = steps[stepIndex];
   const total = steps.length;
 
-
   const showBack = stepIndex !== 0;
 
   const handleNext = () => {
@@ -322,28 +321,15 @@ export default function ResultsPage() {
 
   return (
     <div className="container">
-      <header className="rp-head center">
-        <div className="rp-top">
-          <div />
-          <div className="rp-brand">
-            <span className="rp-keto">KETO</span>
-            <span className="rp-slim">SLIM</span>
-          </div>
-          <div className="rp-right">
-            <DarkModeToggle
-              isDark={theme === "dark"}
-              onToggle={() =>
-                setTheme((t) => (t === "dark" ? "light" : "dark"))
-              }
-            />
-          </div>
-        </div>
+      <BrandHeader
+        isDark={theme === "dark"}
+        onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+      />
 
-        <div className="rp-subrow">
-          <div className="rp-subtitle">Your Results</div>
-          <ProgressDots total={6} activeIndex={stepIndex} />
-        </div>
-      </header>
+      <div className="rp-subrow">
+        <div className="rp-subtitle">Your Results</div>
+        <ProgressDots total={6} activeIndex={stepIndex} />
+      </div>
 
       <main className="center">
         <section className="card rp-card">

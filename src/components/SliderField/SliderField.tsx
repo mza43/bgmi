@@ -1,4 +1,5 @@
 import "./SliderField.css";
+import FieldLabel from "../FieldLabel/FieldLabel";
 
 type Props = {
   value: number;
@@ -24,31 +25,33 @@ export default function SliderField({
   return (
     <div className="sf">
       <div className="sf-top">
-        <div className="sf-label">
-          {label} {required ? <span className="sf-req">*</span> : null}
-        </div>
+        <FieldLabel
+          label={label}
+          required={required}
+          className="sf-label"
+          reqClass="sf-req"
+        />
         <div className="sf-value">{value}</div>
       </div>
 
-     <input
-  className="sf-range"
-  type="range"
-  min={min}
-  max={max}
-  step={step}
-  value={value}
-  onChange={(e) => onChange(Number(e.target.value))}
-  style={{
-    background: `linear-gradient(
+      <input
+        className="sf-range"
+        type="range"
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        style={{
+          background: `linear-gradient(
       to right,
       var(--mint) 0%,
       var(--mint) ${((value - min) / (max - min)) * 100}%,
       #2e2e2e ${((value - min) / (max - min)) * 100}%,
       #2e2e2e 100%
     )`,
-  }}
-/>
-
+        }}
+      />
 
       {hint ? <div className="sf-hint">{hint}</div> : null}
     </div>

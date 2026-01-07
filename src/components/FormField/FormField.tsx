@@ -1,4 +1,5 @@
 import "./FormField.css";
+import FieldLabel from "../FieldLabel/FieldLabel";
 
 type Props = {
   label: string;
@@ -9,9 +10,12 @@ type Props = {
 export default function FormField({ label, required, children }: Props) {
   return (
     <div className="ff">
-      <div className="ff-label">
-        {label} {required ? <span className="ff-req">*</span> : null}
-      </div>
+      <FieldLabel
+        label={label}
+        required={required}
+        className="ff-label"
+        reqClass="ff-req"
+      />
       {children}
     </div>
   );
