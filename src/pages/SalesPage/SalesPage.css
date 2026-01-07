@@ -22,10 +22,10 @@
   --r-inset: 14px;
   --r-btn: 14px;
 
-  --h1: 40px;
+  --h1: 30px;
   --h1-lh: 1.12;
 
-  --h2: 34px;
+  --h2: 30px;
   --h2-lh: 1.12;
 
   --h3: 26px;
@@ -147,7 +147,7 @@ html, body {
   margin: 0;
   font-size: var(--h1);
   line-height: var(--h1-lh);
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
@@ -364,7 +364,7 @@ html, body {
   margin: 0 0 18px;
   font-size: var(--h2);
   line-height: var(--h2-lh);
-  font-weight: 900;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 

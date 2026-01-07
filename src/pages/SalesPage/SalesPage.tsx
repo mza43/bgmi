@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DarkModeToggle from "../../components/DarkModeToggle/DarkModeToggle";
+// import DarkModeToggle from "../../components/DarkModeToggle/DarkModeToggle";
 import "./SalesPage.css";
+import BrandHeader from "../../components/BrandHeader/BrandHeader";
 
 // images
 import nowImg from "./images/now.webp";
@@ -154,20 +155,11 @@ export default function SalesPage() {
   return (
     <div className="sp-page">
       {/* top bar */}
-      <header className="sp-topbar">
-        <div />
-        <div className="sp-brand">
-          <span className="sp-keto">KETO</span>
-          <span className="sp-slim">SLIM</span>
-        </div>
+     <BrandHeader
+  isDark={theme === "dark"}
+  onToggleTheme={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+/>
 
-        <div className="sp-topbarRight">
-          <DarkModeToggle
-            isDark={theme === "dark"}
-            onToggle={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
-          />
-        </div>
-      </header>
 
       <main className="sp-container">
         <section className="sp-card">

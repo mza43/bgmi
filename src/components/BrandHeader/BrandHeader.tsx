@@ -1,5 +1,6 @@
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import "./BrandHeader.css";
+import logo from "./logo/logo.png";
 
 type Props = {
   isDark: boolean;
@@ -11,20 +12,13 @@ export default function BrandHeader({ isDark, onToggleTheme }: Props) {
     <header className="bh">
       <div className="bh-row">
         <div /> {/* left spacer */}
-
         <div className="bh-brand">
-          <span className="bh-keto">KETO</span>
-          <span className="bh-slim">SLIM</span>
+          <img src={logo} alt="KetoSlim" className="bh-logo" />
         </div>
-
         <div className="bh-right">
           <DarkModeToggle isDark={isDark} onToggle={onToggleTheme} />
         </div>
       </div>
-
-      <h1 className="bh-title">
-        Enter Your <span>Details</span>
-      </h1>
     </header>
   );
 }

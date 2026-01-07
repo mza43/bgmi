@@ -1,6 +1,38 @@
-/* Header layout */
+/* ResultsPage.css — FULL CSS (clean, no duplicates) */
+
+/* -------- Design tokens -------- */
+:root {
+  --mint: #39c3a2;
+  --accent-red: #ff4d4f;
+
+  --text: #16333d;
+  --text-2: #1d3b46;
+  --muted: #6b7b85;
+
+  --card-bg: #ffffff;
+  --border: rgba(22, 51, 61, 0.12);
+  --input-bg: #f3f6f8;
+
+  --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.10);
+  --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* -------- Base / fonts -------- */
+.container,
+.rp-head,
+.rp-card,
+.rp-btn {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.center {
+  width: 100%;
+}
+
+/* -------- Header layout -------- */
 .rp-head {
-  padding: 6px 0 18px;
+  padding: 10px 0 18px;
 }
 
 .rp-top {
@@ -16,28 +48,44 @@
   font-size: 22px;
 }
 
-.rp-keto { color: var(--mint); }
-.rp-slim { color: var(--accent-red); margin-left: 2px; }
+.rp-keto {
+  color: var(--mint);
+}
+
+.rp-slim {
+  color: var(--accent-red);
+  margin-left: 2px;
+}
 
 .rp-right {
   display: flex;
   justify-content: flex-end;
 }
 
-.rp-subrow {
+/* subtitle row + dots */
+/* .rp-subrow {
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 14px;
+} */
+/* Align "Your Results" left and dots right like reference */
+.rp-subrow {
+  max-width: 640px;          /* same width as card */
+  margin: 14px auto 0;       /* center the row */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .rp-subtitle {
   color: var(--mint);
-  font-weight: 800;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-/*  Progress dots (1 green + 5 grey like screenshot) */
+/* -------- Progress dots -------- */
 .rp-dots {
   display: inline-flex;
   gap: 6px;
@@ -48,19 +96,22 @@
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: #d9e1e7; 
+  background: #d9e1e7;
 }
 
 .rp-dot.is-on {
-  background: var(--mint); 
+  background: var(--mint);
 }
 
-/* Card */
+/* -------- Card -------- */
 .rp-card {
   max-width: 640px;
   margin: 18px auto 0;
   padding: 0;
   border-radius: 18px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .rp-cardInner {
@@ -69,16 +120,19 @@
 }
 
 .rp-icon {
-  font-size: 28px;
+  font-size: 30px;
   margin-bottom: 10px;
+  line-height: 1;
 }
 
+/* -------- Typography -------- */
 .rp-title {
   margin: 0;
-  font-size: 38px;
-  line-height: 1.1;
-  font-weight: 900;
-  color: #16333d;
+  color: var(--text);
+  font-weight: 550;
+  letter-spacing: -0.5px;
+  line-height: 1.08;
+  font-size: clamp(28px, 4.2vw, 35px);
 }
 
 .rp-red {
@@ -86,25 +140,37 @@
 }
 
 .rp-subTitle {
-  font-size: 18px;
-  font-weight: 900;
-  color: #16333d;
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.2px;
 }
 
 .rp-subhead {
   margin-top: 10px;
   font-size: 18px;
-  font-weight: 900;
-  color: #16333d;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.2px;
 }
 
-/* Image area */
+/* -------- Image area -------- */
 .rp-illustration {
   display: flex;
   justify-content: center;
   margin: 18px 0 6px;
 }
 
+.rp-img {
+  width: min(320px, 100%);
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
+
+/* If you ever use placeholder box again */
 .rp-illBox {
   width: 260px;
   height: 170px;
@@ -120,143 +186,201 @@
   font-weight: 800;
 }
 
-/* Body text */
+/* -------- Body text -------- */
 .rp-body {
   text-align: left;
-  margin-top: 10px;
-  color: #1d3b46;
-  font-size: 20px;
-  line-height: 1.55;
+  margin-top: 14px;
+  color: var(--text-2);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: -0.1px;
 }
 
 .rp-body p {
-  margin: 16px 0;
+  margin: 14px 0;
 }
 
 .rp-redText {
+  margin-top: 14px;
   color: var(--accent-red);
-  font-size: 16px;
-  line-height: 1.5;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
-/* Buttons row */
-.rp-actions{
-  max-width: 820px;
+/* -------- Buttons row -------- */
+.rp-actions {
+  max-width: 550px;
   margin: 26px auto 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
+  gap: 18px;
   align-items: center;
 }
 
-.rp-actions.only-next{
-  grid-template-columns: 1fr;
-  justify-items: center;
-}
-
-/* Responsive */
-@media (max-width: 720px) {
-  .rp-cardInner { padding: 26px 18px 22px; }
-  .rp-title { font-size: 30px; }
-  .rp-body { font-size: 18px; }
-  .rp-actions { max-width: 92%; grid-template-columns: 1fr; }
-}
-
-/* Dark mode readability */
-:root[data-theme="dark"] .rp-title,
-:root[data-theme="dark"] .rp-subhead,
-:root[data-theme="dark"] .rp-body,
-:root[data-theme="dark"] .rp-subTitle {
-  color: #ffffff;
-}
-
-:root[data-theme="dark"] .rp-body p {
-  color: #ffffff;
-}
-
-:root[data-theme="dark"] .rp-card {
-  background: #0f1b1f;
-}
-
-:root[data-theme="dark"] .rp-redText {
-  color: #ff6b6b;
-}
-
-
-/* Button container */
-.rp-actions {
-  max-width: 600px;                 
-  margin: 28px auto 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: center;
-}
-
+/* Step 0: keep Next on right column */
 .rp-actions.only-next {
-  grid-template-columns: 1fr 1fr;   
+  grid-template-columns: 1fr 1fr;
 }
-
 
 .rp-actions.only-next > div {
-  display: none;
+  display: block; /* placeholder stays */
 }
-
 
 .rp-actions.only-next .rp-btn-next {
   grid-column: 2;
 }
 
-
+/* Base button */
 .rp-btn {
-  height: 64px;
+  height: 50px;
   width: 100%;
-  border-radius: 12px;
-  font-size: 22px;
-  font-weight: 800;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
   cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 0 26px;
+  padding: 0 22px;
   gap: 12px;
 
-  transition: none;
+  border: 2px solid transparent;
+  transition: transform 120ms ease, filter 120ms ease, box-shadow 120ms ease;
 }
 
-
-/* Back button */
+/* Back = secondary */
 .rp-btn-back {
-  background: #39c3a2;
-  border: 2px solid #39c3a2;
-  color: #f8f8f8;
+  background: #ffffff;
+  border-color: #38c7ad;
+  color: var(--text);
+  box-shadow: none;
 }
 
-/* Next button */
+/* Next = primary */
 .rp-btn-next {
-  background: #36bc9f;
-  border: 2px solid #36bc9f;
+   position: relative;
+  background: var(--mint);
+  border-color: var(--mint);
   color: #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-md);
+   
+
 }
 
-/* Disable hover effects */
-.rp-btn-back:hover,
-.rp-btn-next:hover,
-.rp-btn-back:active,
-.rp-btn-next:active {
-  transform: none;
+/* Hover/active (subtle) */
+.rp-btn:hover {
+  filter: brightness(0.98);
 }
+
+.rp-btn:active {
+  transform: translateY(1px);
+  filter: brightness(0.96);
+}
+
+/* Center Next text without changing colors */
+.rp-btn-next {
+  position: relative;
+}
+
+.rp-btn-next span:first-child {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rp-btn-next .rp-arrowRight {
+  position: absolute;
+  right: 20px;
+}
+
+/*  */
+
+/* Center Back button text while keeping arrow on the left */
+.rp-btn-back {
+  position: relative;
+}
+
+.rp-btn-back span:last-child {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.rp-btn-back .rp-arrowLeft {
+  position: absolute;
+  left: 20px;
+}
+
+
+
+
 
 /* Arrows */
+.rp-arrowLeft,
+.rp-arrowRight {
+  font-size: 24px;
+  line-height: 1;
+}
+
 .rp-arrowLeft {
   margin-right: auto;
-  font-size: 26px;
 }
 
 .rp-arrowRight {
   margin-left: auto;
-  font-size: 26px;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 720px) {
+  .rp-cardInner {
+    padding: 26px 18px 22px;
+  }
+
+  .rp-body {
+    font-size: 17px;
+  }
+
+  .rp-actions {
+    max-width: 92%;
+    grid-template-columns: 1fr; /* stack */
+    gap: 12px;
+  }
+
+  .rp-actions.only-next {
+    grid-template-columns: 1fr; /* next full width on mobile */
+  }
+
+  .rp-actions.only-next .rp-btn-next {
+    grid-column: auto;
+  }
+
+  .rp-btn {
+    height: 58px;
+    font-size: 18px;
+    border-radius: 14px;
+  }
+}
+
+/* -------- Dark mode -------- */
+:root[data-theme="dark"] {
+  --card-bg: #0f1b1f;
+  --border: rgba(255, 255, 255, 0.10);
+  --text: #ffffff;
+  --text-2: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.72);
+  --input-bg: rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme="dark"] .rp-btn-back {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+:root[data-theme="dark"] .rp-redText {
+  color: #ff6b6b;
 }

@@ -79,6 +79,9 @@ export default function DetailsPage() {
       />
 
       <main className="center">
+        <h1 className="bh-title">
+          Enter Your <span>Details</span>
+        </h1>
         <section className="card dp-card">
           <form className="dp-form" onSubmit={onSubmit}>
             <FormField label="Gender" required>
@@ -98,7 +101,9 @@ export default function DetailsPage() {
                     type="radio"
                     name="gender"
                     checked={form.gender === "female"}
-                    onChange={() => setForm((p) => ({ ...p, gender: "female" }))}
+                    onChange={() =>
+                      setForm((p) => ({ ...p, gender: "female" }))
+                    }
                   />
                   <span>Female</span>
                 </label>
@@ -129,14 +134,18 @@ export default function DetailsPage() {
               <input
                 placeholder="e.g. 2000"
                 value={form.calories}
-                onChange={(e) => setForm((p) => ({ ...p, calories: e.target.value }))}
+                onChange={(e) =>
+                  setForm((p) => ({ ...p, calories: e.target.value }))
+                }
               />
             </FormField>
 
             <FormField label="Cups of Water Per Day" required>
               <select
                 value={form.waterCups}
-                onChange={(e) => setForm((p) => ({ ...p, waterCups: e.target.value }))}
+                onChange={(e) =>
+                  setForm((p) => ({ ...p, waterCups: e.target.value }))
+                }
               >
                 <option value="" disabled>
                   Select cups
@@ -153,7 +162,9 @@ export default function DetailsPage() {
               <input
                 placeholder="e.g. 1.5"
                 value={form.weeklyLoss}
-                onChange={(e) => setForm((p) => ({ ...p, weeklyLoss: e.target.value }))}
+                onChange={(e) =>
+                  setForm((p) => ({ ...p, weeklyLoss: e.target.value }))
+                }
               />
             </FormField>
 
@@ -161,7 +172,9 @@ export default function DetailsPage() {
               <input
                 placeholder="e.g. 30"
                 value={form.daysToResults}
-                onChange={(e) => setForm((p) => ({ ...p, daysToResults: e.target.value }))}
+                onChange={(e) =>
+                  setForm((p) => ({ ...p, daysToResults: e.target.value }))
+                }
               />
             </FormField>
 
