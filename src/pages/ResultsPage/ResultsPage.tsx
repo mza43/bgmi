@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DarkModeToggle from "../../components/DarkModeToggle/DarkModeToggle";
 import BrandHeader from "../../components/BrandHeader/BrandHeader";
 import { loadForm } from "../../utils/storage";
 import "./ResultsPage.css";
